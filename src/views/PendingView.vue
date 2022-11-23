@@ -1,7 +1,7 @@
 <template>
   <div class="pending-view">
 
-    <button @click="toggleActif">Actif: {{ actif }}</button>
+
     <button @click="cleanPending">Debug: Clean pending</button>
     PendingView :
     <!-- {{pending}} -->
@@ -19,10 +19,6 @@ export default {
     ListView,
   },
   methods:{
-    toggleActif(){
-      this.$store.commit('ypu/setActif', !this.actif)
-      this.$prepare()
-    },
     cleanPending(){
       this.$cleanPending()
     }
@@ -30,9 +26,6 @@ export default {
   computed:{
     pending(){
       return this.$store.state.ypu.pending
-    },
-    actif(){
-      return this.$store.state.ypu.actif
     }
   }
 

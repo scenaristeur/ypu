@@ -3,6 +3,8 @@ import { WebsocketProvider } from 'y-websocket'
 import {Awareness} from 'y-protocols/awareness.js'
 import { v4 as uuidv4 } from 'uuid';
 
+let processTime = 100
+
 
 export default {
   install: (app, options) => {
@@ -192,7 +194,7 @@ export default {
         pending.delete(p.key)
         store.commit('ypu/setReady', true)
         app.config.globalProperties.$prepare()
-      }, 1000);
+      }, processTime);
     }
 
     // app.config.globalProperties.$addToMemory = async function(operation){

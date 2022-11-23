@@ -1,7 +1,12 @@
 <template>
   <div class="list-view">
-    <ul v-if="object != null">
-      <li v-for="v, k of Object.values(object)" :key="k">{{k}}: {{v}}</li>
+    {{clientID}}
+    <ul v-if="object != null" style="height:200px;overflow-y: scroll;">
+      <li v-for="v of Object.values(object).reverse()" :key="v.key">
+        <b v-if="v.owner == clientID">ME</b>
+        <span v-else>{{v.owner}}</span>
+        {{v}}
+      </li>
     </ul>
   </div>
 </template>
@@ -9,7 +14,12 @@
 <script>
 export default {
   name: 'ListView',
-  props:["object"]
+  props:["object"],
+  computed:{
+    clientID(){
+      return this.$store.state.ypu.clientID
+    }
+  }
 }
 </script>
 
