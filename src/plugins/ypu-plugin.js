@@ -3,7 +3,7 @@ import { WebsocketProvider } from 'y-websocket'
 import {Awareness} from 'y-protocols/awareness.js'
 import { v4 as uuidv4 } from 'uuid';
 
-let processTime = 1000
+let processTime = 1
 
 
 export default {
@@ -63,7 +63,7 @@ export default {
 
         // sample code.
         ymapEvent.changes.keys.forEach((change, key) => {
-          console.log(change, key)
+        //  console.log(change, key)
           if (change.action === 'add') {
             app.config.globalProperties.$prepare(key)
             //console.log(`Property "${key}" was added. Initial value: "${ymap.get(key)}".`)
@@ -90,7 +90,7 @@ export default {
         store.commit('ypu/setPending', pending.toJSON())
         // Find out what changed:
         // Log the Array-Delta Format to calculate the difference to the last observe-event
-        console.log(pendingEvent.changes.delta)
+      //  console.log(pendingEvent.changes.delta)
       })
 
       done.observe(doneEvent => {
@@ -98,7 +98,7 @@ export default {
         store.commit('ypu/setDone', done.toJSON())
         // Find out what changed:
         // Log the Array-Delta Format to calculate the difference to the last observe-event
-        console.log(doneEvent.changes.delta)
+      //  console.log(doneEvent.changes.delta)
       })
 
       registers.observe(registersEvent => {
