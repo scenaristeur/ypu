@@ -7,7 +7,13 @@ const state = () => ({
   doc: null,
   wsProvider: null,
   status: null,
-  memory: null
+  memory: null,
+  todos: null,
+  pending: null,
+  done: null,
+  ready: false,
+  actif: false,
+  clientID: null
   // id: "",
   // agentVersion: "",
 
@@ -25,6 +31,28 @@ const mutations = {
   },
   setMemory(state, m){
     state.memory = m
+  },
+  setTodos(state, t){
+    state.todos = t
+  },
+  setPending(state, p){
+    state.pending = p
+  },
+  setDone(state, d){
+    state.done = d
+  },
+  setReady(state, b){
+    state.ready = b
+  },
+  setClientID(state, c){
+    state.clientID = c
+  },
+  setActif(state, b){
+    console.log(b)
+    state.actif = b
+    if(state.actif == true && state.ready == false){
+      state.ready = true
+    }
   },
 }
 
