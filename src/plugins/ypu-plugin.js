@@ -3,7 +3,7 @@ import { WebsocketProvider } from 'y-websocket'
 import {Awareness} from 'y-protocols/awareness.js'
 import { v4 as uuidv4 } from 'uuid';
 
-let processTime = 100
+let processTime = 1000
 
 
 export default {

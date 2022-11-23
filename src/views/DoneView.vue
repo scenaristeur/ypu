@@ -3,7 +3,7 @@
     <button @click="cleanDone">Debug: Clean done</button>
     <!--  {{done}} -->
     DoneView :
-    <ListView :object="done" />
+    <ListView :object="done" reverse="true" />
   </div>
 </template>
 
