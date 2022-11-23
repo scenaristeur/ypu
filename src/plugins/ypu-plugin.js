@@ -3,7 +3,7 @@ import { WebsocketProvider } from 'y-websocket'
 import {Awareness} from 'y-protocols/awareness.js'
 import { v4 as uuidv4 } from 'uuid';
 
-let processTime = 1
+let processTime = 100
 
 
 export default {
@@ -63,7 +63,7 @@ export default {
 
         // sample code.
         ymapEvent.changes.keys.forEach((change, key) => {
-        //  console.log(change, key)
+          //  console.log(change, key)
           if (change.action === 'add') {
             app.config.globalProperties.$prepare(key)
             //console.log(`Property "${key}" was added. Initial value: "${ymap.get(key)}".`)
@@ -90,7 +90,7 @@ export default {
         store.commit('ypu/setPending', pending.toJSON())
         // Find out what changed:
         // Log the Array-Delta Format to calculate the difference to the last observe-event
-      //  console.log(pendingEvent.changes.delta)
+        //  console.log(pendingEvent.changes.delta)
       })
 
       done.observe(doneEvent => {
@@ -98,7 +98,7 @@ export default {
         store.commit('ypu/setDone', done.toJSON())
         // Find out what changed:
         // Log the Array-Delta Format to calculate the difference to the last observe-event
-      //  console.log(doneEvent.changes.delta)
+        //  console.log(doneEvent.changes.delta)
       })
 
       registers.observe(registersEvent => {
@@ -138,7 +138,7 @@ export default {
 
     //MFS, Mutable File System https://proto.school/mutable-file-system/02
     app.config.globalProperties.$pushToTodos = async function(operation){
-      todos.set(uuidv4(), {operation: operation})
+      todos.set(uuidv4(), {operation: operation, asker: awareness.clientID})
     }
 
     app.config.globalProperties.$cleanTodos = async function(){
@@ -171,7 +171,7 @@ export default {
         if (current != undefined){
           store.commit('ypu/setReady', false)
 
-          let p = {key: key, data: current, owner: awareness.clientID, start: Date.now()}
+          let p = {key: key, data: current, worker: awareness.clientID, start: Date.now()}
           // console.log(p.data)
           // console.log(p.data.id, p)
           pending.set(key, p)
