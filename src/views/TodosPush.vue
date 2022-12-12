@@ -1,5 +1,6 @@
 <template>
   <div class="todos-push">
+    <input v-model="wt" placeholder="waitTime in ms, default:100" type="number" min="0" @change="setWaitTime"/>
     <button @click="toggleActif">Actif: {{ actif }}</button>
     <input v-model="operation" placeholder="operation" v-on:keyup.enter="push"/>
     <button @click="push">Push to todos</button>
@@ -17,9 +18,13 @@ export default {
   data(){
     return {
       operation: "",
-      numberOfTodos: 100
+      numberOfTodos: 100,
+      wt: 0,
     }
 
+  },
+  created(){
+    this.wt = this.$store.state.ypu.waitTime
   },
   methods:{
     toggleActif(){
@@ -35,16 +40,27 @@ export default {
         let ope = {"ope" : "reverse", data: i+"--"+Date.now() }
         this.$pushToTodos(ope)
       }
-
       this.operation = ""
     },
     cleanTodos(){
       this.$cleanTodos()
+    },
+    setWaitTime(){
+      console.log("set waitTime ", this.wt)
+      this.$store.commit("ypu/setWaitTime", this.wt)
+    }
+  },
+  watch:{
+    waitTime(){
+      this.wt = this.waitTime
     }
   },
   computed:{
     actif(){
       return this.$store.state.ypu.actif
+    },
+    waitTime(){
+      return this.$store.state.ypu.waitTime
     }
   }
 

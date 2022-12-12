@@ -13,7 +13,8 @@ const state = () => ({
   done: null,
   ready: false,
   actif: false,
-  clientID: null
+  clientID: null,
+  waitTime: 100,
   // id: "",
   // agentVersion: "",
 
@@ -46,6 +47,9 @@ const mutations = {
   },
   setClientID(state, c){
     state.clientID = c
+  },
+  setWaitTime(state, t){
+    state.waitTime = t
   },
   setActif(state, b){
     console.log(b)

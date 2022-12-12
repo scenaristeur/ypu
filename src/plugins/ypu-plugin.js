@@ -3,7 +3,6 @@ import { WebsocketProvider } from 'y-websocket'
 import {Awareness} from 'y-protocols/awareness.js'
 import { v4 as uuidv4 } from 'uuid';
 
-let processTime = 100
 
 
 export default {
@@ -161,6 +160,7 @@ export default {
 
 
     app.config.globalProperties.$prepare = async function(key){
+      console.log("key", key)
       if(store.state.ypu.actif == true && store.state.ypu.ready == true){
 
         if (key == undefined){
@@ -186,8 +186,9 @@ export default {
 
     app.config.globalProperties.$process = async function(p){
       console.log("processing ", p)
+      let processTime = store.state.ypu.waitTime
       setTimeout(function(){
-        console.log("Executed after 1 second");
+        console.log("Executed after ms ",processTime);
         p.end = Date.now()
         p.result = "Wahou c'est ok"
         done.set(p.key, p)
