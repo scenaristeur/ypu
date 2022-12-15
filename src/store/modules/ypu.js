@@ -6,7 +6,7 @@
 const state = () => ({
   doc: null,
   wsProvider: null,
-  status: null,
+  status: "unknown",
   memory: null,
   todos: null,
   pending: null,
