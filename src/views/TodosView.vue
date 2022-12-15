@@ -1,7 +1,6 @@
 <template>
   <div class="todos-view">
-    TodosView :
-    <!-- {{todos}} -->
+      <!-- {{todos}} -->
         <ListView :object="todos" />
     <hr>
   </div>

@@ -3,8 +3,9 @@
     <fieldset>
       <legend>Websocket</legend>
 
-      Choose the <button @click="remote"><b>remote</b> '{{remote_url}}'</button> (default) url
-      (or for developpement on your local machine, use the <button @click="local">local </button>
+      Choose the <button @click="remote"><b>remote</b> '{{remote_url}}'</button> url (default).<br>
+
+      <small><i>(or for developpement on your local machine, use the <button @click="local">local </button>)</i></small>
       <br>
 
       server :
@@ -15,9 +16,9 @@
 
       and <button @click="connect">Connect</button>
       <small><i>when using 'wss://ypu.glitch.me/', please wait eventualy 30 seconds for the server to be started,
-        because if nobody is using it at the moment, it can be stopped</i></small>
+        because if nobody is using it at the moment, it can be stopped.</i></small>
         <br>
-        Here is the "Websocket Bus status" : {{ status }}
+        Here is the "Websocket Bus status" : <span :style="status == 'connected'? 'color:green' : 'color:red'">{{ status }}</span>
       </fieldset>
     </div>
   </template>
@@ -73,9 +74,5 @@
   .websocket-bus {
 
   }
-  legend {
-    background-color: #000;
-    color: #fff;
-    padding: 3px 6px;
-  }
+
   </style>

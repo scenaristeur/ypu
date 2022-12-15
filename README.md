@@ -1,5 +1,9 @@
 # ypu
 
+decentralized computing in the browser at [https://scenaristeur.github.io/ypu/](https://scenaristeur.github.io/ypu/).
+
+
+
 ## Project setup
 ```
 npm install

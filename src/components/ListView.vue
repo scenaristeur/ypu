@@ -1,6 +1,6 @@
 <template>
   <div class="list-view">
-    {{clientID}} / {{items.length }}
+    your clientId : {{clientID}} / {{items.length }} items
     <ul v-if="object != null" style="height:200px;overflow-y: scroll;">
       <li v-for="v of items" :key="v.key">
         <b v-if="v.worker == clientID">ME</b>

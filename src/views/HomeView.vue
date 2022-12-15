@@ -4,7 +4,7 @@
     <HelloWorld msg="Welcome to Your Vue.js App"/> -->
 
     <h1>A decentralized computer</h1>
-    <small><i>15/12/2022</i></small>
+    <small><i>15/12/2022 - <a href="https://github.com/scenaristeur/ypu" target="_blank">Questions & code</a></i></small>
     <p>
       Let's say we want to build a decentralized computer, for many reason :
       <ul>
@@ -33,14 +33,28 @@
         for sharing the task document that we need and can be used with the protocol+url <b>wss://ypu.glitch.me/</b>. This allow us to share documents on a channel like <b>my-ypu</b>
       </p>
 
-
-
-
       <WebsocketBus />
-      <hr>
+
+      <h1>Adding some tasks</h1>
+
+      <p>
+        Let's now imagine something (someone, a computer, a robot...) adding some new tasks to the document shared through the channel of the websocket server.
+      </p>
+
+
+
+
+
+
+
       <TodosPush />
+
+      <h1>Todos View</h1>
       <TodosView />
+
+      <h1>Pending View</h1>
       <PendingView />
+      <h1>Done view</h1>
       <DoneView />
     </div>
   </template>

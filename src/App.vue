@@ -27,4 +27,9 @@ nav a {
 nav a.router-link-exact-active {
   color: #42b983;
 }
+legend {
+  background-color: #000;
+  color: #fff;
+  padding: 3px 6px;
+}
 </style>
