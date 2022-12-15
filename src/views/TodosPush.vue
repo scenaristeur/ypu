@@ -44,9 +44,10 @@
       <hr>
       If you open one (or more) other browser tabs with <button @click="openWindows">Open 2 other windows</button>,
       and "Connect" them to the same server, then toggle them in "Active : true",
-      and in one of them you add 100 new todos,
-      you should see every tab competing to achieve the tasks !!! <br>
-      And the same thing happens if many computers / users are connected on the same page.
+      and in one of them click the "Push many todos" button to add 100 new todos,
+      you should see every tab competting to achieve the tasks !!! <br>
+      And the same thing happens if many computers / users are connected on the same page.<br>
+      Play with the "waitTime" parameter of each "tab" to manage if it is able to process task or if it is occupied.
     </fieldset>
 
   </div>
