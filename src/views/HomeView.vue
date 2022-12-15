@@ -16,10 +16,12 @@
       </ul>
     </p>
 
-    <p>Imagine you just have to open a webpage or connect to a service to instantly accessing many resources for free.</p>
-    <p>First, let's imagine every single task as a document that computer could share and interact, without they know the meaning of this task.
-      And imagine the document representing this task could be instantly shared all over the world. Any computer connected free of charge at the moment
-      when this task is created can (if it is capable) do the task and update the task document, updating it as done.</p>
+    <p>First, imagine you just have to open a webpage or connect your computer or phone to a service to instantly accessing many resources for free.</p>
+    <p>Next, shouldn't it be nice if every single task was a document that computers could share and interact with,
+      without they know the real meaning of this task, just the operation to do with it.
+      And imagine the document representing this task could be instantly shared all over the world.
+      Any computer connected not busy at the moment
+      when this task is created can (if it is capable) achieve the task and update the task document, updating it as " &#x2705; Done".</p>
 
       <h1>Sharing a task document</h1>
 

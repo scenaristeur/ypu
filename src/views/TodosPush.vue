@@ -24,7 +24,7 @@
         to delete all todos from the "Todos view".<br>
         The basic operation of the upper todos is to reverse operation, but the operation of a task can be specified too with everything you want
         <input v-model="operation" placeholder="operation" v-on:keyup.enter="push"/>
-        <button @click="push">Push to todos</button>
+        <button @click="push">Push one operation to todos</button>
 
       </p>
 
@@ -42,7 +42,7 @@
       In the "Done View", tasks prefixed by "<b>ME</b>" are tasks that have been achieved by your computer, or more exactly, by the actual tab of the browser.
       (The worker of the task is equal to the clientId of the tab)
       <hr>
-      If you open one (or more) other browser tabs with <button @click="openWindows">Open 2 other windows</button>,
+      If you open one (or more) other browser tabs with <button @click="openWindows">open 3 more windows</button>,
       and "Connect" them to the same server, then toggle them in "Active : true",
       and in one of them click the "Push many todos" button to add 100 new todos,
       you should see every tab competting to achieve the tasks !!! <br>
@@ -91,8 +91,16 @@ export default {
       this.$store.commit("ypu/setWaitTime", this.wt)
     },
     openWindows(){
-      window.open(window.location.href, "Window 1", "width=200,height=100");
-      window.open(window.location.href, "Window 2", "width=200,height=100");
+      console.log("width="+window.screenWidth/3+",height="+window.screenHeight)
+      let w = window.screen.width/3
+      let h = window.screen.height
+
+      for (let i= 0; i <3; i ++){
+        let specs = "width="+w+",height="+h+",top=0,left="+i*w
+        console.log(specs)
+        window.open(window.location.href, "YPU "+i, specs);
+      }
+
     }
   },
   watch:{
