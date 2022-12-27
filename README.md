@@ -148,3 +148,8 @@ https://github.com/ychenz/quantum_computing_materials
  - https://github.com/shd101wyy/qubit.js/
  - https://github.com/davidbkemp/animated-qubits
  - https://dev.to/codesphere/quantum-computing-with-javascript-using-qjs-31k0
+
+
+
+ - i18n
+- https://vue-i18n.intlify.dev/guide/advanced/lazy.html

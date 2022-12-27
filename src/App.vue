@@ -1,10 +1,22 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div>
+
+
+    <nav>
+      <router-link to="/">{{ $t("home") }}</router-link> |
+      <router-link to="/about">{{ $t("about") }}</router-link> |     <LocaleSwitcher />
+    </nav>
+    <router-view/>
+  </div>
 </template>
+
+<script>
+import LocaleSwitcher from '@/components/LocaleSwitcher.vue'
+export default {
+  name: "App",
+  components: { LocaleSwitcher },
+};
+</script>
 
 <style>
 #app {
