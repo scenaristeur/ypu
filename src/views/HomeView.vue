@@ -58,6 +58,10 @@
       <PendingView />
       <h1>Done view</h1>
       <DoneView />
+
+      <hr>
+      <IpfsNode />
+
     </div>
   </template>
 
@@ -69,6 +73,7 @@
   import TodosView from '@/views/TodosView.vue'
   import PendingView from '@/views/PendingView.vue'
   import DoneView from '@/views/DoneView.vue'
+  import IpfsNode from '@/views/IpfsNode.vue'
 
   export default {
     name: 'HomeView',
@@ -78,6 +83,7 @@
       TodosView,
       PendingView,
       DoneView,
+      IpfsNode
     },
   }
   </script>
