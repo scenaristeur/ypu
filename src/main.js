@@ -5,6 +5,12 @@ import './registerServiceWorker'
 import router from './router'
 import store from './store'
 
+// syncedstore 
+import * as Vue from "vue";
+import { enableVueBindings } from "@syncedstore/core";
+
+enableVueBindings(Vue);
+
 import YpuPlugin from './plugins/ypu-plugin.js'
 
 const messages = {

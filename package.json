@@ -10,6 +10,7 @@
     "postgit": "git push && git subtree push --prefix dist origin gh-pages"
   },
   "dependencies": {
+    "@syncedstore/core": "^0.4.3",
     "core-js": "^3.8.3",
     "ipfs-core": "^0.18.0",
     "register-service-worker": "^1.7.2",
@@ -17,6 +18,7 @@
     "vue-i18n": "^9.2.2",
     "vue-router": "^4.0.3",
     "vuex": "^4.0.0",
+    "y-webrtc": "^10.2.4",
     "y-websocket": "^1.4.5",
     "yjs": "^13.5.42"
   },
