@@ -33,6 +33,7 @@ ws noosphere
 -  "wss://yjs-leveldb.glitch.me/", // with leveldb
 
 # 16 bits cpu in js
+
 - https://francisstokes.wordpress.com/2017/07/20/16-bit-vm-in-javascript/
 - https://www.youtube.com/watch?v=fTBwD3sb5mw
 - https://github.com/francisrstokes/16bitjs
@@ -41,6 +42,7 @@ ws noosphere
 - https://www.npmjs.com/package/ljd-16-bit-cpu
 - https://lj-ditrapani.github.io/16-bit-cpu-ts/
 - 8 bits https://www.youtube.com/watch?v=HyznrdDSSGM&list=PLowKtXNTBypGqImE405J2565dvjafglHU
+- https://github.com/lj-ditrapani/16-bit-computer-specification/blob/main/assembler/assembly-language.md
 
 # jsqubit tutorial
 - https://davidbkemp.github.io/jsqubits/jsqubitsTutorial.html

@@ -9,6 +9,11 @@ const routes = [
     component: HomeView
   },
   {
+    path: '/synced_store',
+    name: 'synced_store',
+    component: () => import(/* webpackChunkName: "synced_store" */ '../views/SyncedStore.vue')
+  },
+  {
     path: '/about',
     name: 'about',
     // route level code-splitting

@@ -4,7 +4,9 @@
 
     <nav>
       <router-link to="/">{{ $t("home") }}</router-link> |
-      <router-link to="/about">{{ $t("about") }}</router-link> |     <LocaleSwitcher />
+      <router-link to="/synced_store">{{ $t("synced_store") }}</router-link> | 
+      <router-link to="/about">{{ $t("about") }}</router-link> |  
+      <LocaleSwitcher />
     </nav>
     <router-view/>
   </div>
