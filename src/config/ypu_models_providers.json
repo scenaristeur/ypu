@@ -1,0 +1,156 @@
+{
+    "id": "ypu_models_providers_config",
+    "version": "0.0.1",
+    "services": [
+        {
+            "name": "LocalAi",
+            "url": "http://127.0.0.1:8080",
+            "description": "localAi port 8080",
+            "active": "true",
+            "models": {
+                "name": "stablediffusion"
+            },
+            "endpoints": [
+                {
+                    "name": "health",
+                    "path": "readyz",
+                    "method": "GET"
+                },
+                {
+                    "name": "list models",
+                    "path": "v1/models",
+                    "method": "GET"
+                },
+                {
+                    "name": "image generation",
+                    "method": "POST",
+                    "path": "v1/images/generations",
+                    "test_prompt": "",
+                    "format": [
+                        {
+                            "prompt": "A cute baby sea otter",
+                            "size": "256x256"
+                        },
+                        {
+                            "prompt": "floating hair, portrait, ((loli)), ((one girl)), cute face, hidden hands, asymmetrical bangs, beautiful detailed eyes, eye shadow, hair ornament, ribbons, bowties, buttons, pleated skirt, (((masterpiece))), ((best quality)), colorful|((part of the head)), ((((mutated hands and fingers)))), deformed, blurry, bad anatomy, disfigured, poorly drawn face, mutation, mutated, extra limb, ugly, poorly drawn hands, missing limb, blurry, floating limbs, disconnected limbs, malformed hands, blur, out of focus, long neck, long body, Octane renderer, lowres, bad anatomy, bad hands, text",
+                            "size": "256x256"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Ollama",
+            "url": "http://localhost:11434",
+            "description": "Ollama port 11434",
+            "documentation": "https://github.com/jmorganca/ollama/blob/main/docs/api.md",
+            "active": "true",
+            "models": {
+                "name": "llama2"
+            },
+            "endpoints": [
+                {
+                    "name": "List local models",
+                    "path": "api/tags",
+                    "method": "GET",
+                    "response": {
+                        "type": "done",
+                        "format": {
+                            "models": [
+                                {
+                                    "name": "llama2:7b",
+                                    "modified_at": "2023-08-02T17:02:23.713454393-07:00",
+                                    "size": 3791730596
+                                },
+                                {
+                                    "name": "llama2:13b",
+                                    "modified_at": "2023-08-08T12:08:38.093596297-07:00",
+                                    "size": 7323310500
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "health does not exist ?",
+                    "path": "readyz"
+                },
+                {
+                    "name": "Generate a completion",
+                    "path": "api/generate",
+                    "method": "POST",
+                    "test_prompt": "Why is the sky blue?",
+                    "response": {
+                        "type": "stream",
+                        "stream_format": {
+                            "model": "llama2:7b",
+                            "created_at": "2023-08-04T08:52:19.385406455-07:00",
+                            "response": "The",
+                            "done": false
+                        },
+                        "format": {
+                            "model": "llama2:7b",
+                            "created_at": "2023-08-04T19:22:45.499127Z",
+                            "context": [
+                                1,
+                                2,
+                                3
+                            ],
+                            "done": true,
+                            "total_duration": 5589157167,
+                            "load_duration": 3013701500,
+                            "sample_count": 114,
+                            "sample_duration": 81442000,
+                            "prompt_eval_count": 46,
+                            "prompt_eval_duration": 1160282000,
+                            "eval_count": 113,
+                            "eval_duration": 1325948000
+                        }
+                    }
+                },
+                {
+                    "name": "pull a model",
+                    "path": "api/pull",
+                    "method": "GET",
+                    "format": {
+                        "name": "llama2:7b"
+                    },
+                    "response": {
+                        "type": "stream",
+                        "format": {
+                            "status": "downloading digestname",
+                            "digest": "digestname",
+                            "total": 2142590208
+                        }
+                    }
+                },
+                {
+                    "name": "generate embeddings",
+                    "path": "api/embeddings",
+                    "method": "POST",
+                    "format": {
+                        "model": "llama2:7b",
+                        "prompt": "Here is an article about llamas..."
+                    },
+                    "response": {
+                        "type": "done",
+                        "format": {
+                            "models": [
+                                {
+                                    "name": "llama2:7b",
+                                    "modified_at": "2023-08-02T17:02:23.713454393-07:00",
+                                    "size": 3791730596
+                                },
+                                {
+                                    "name": "llama2:13b",
+                                    "modified_at": "2023-08-08T12:08:38.093596297-07:00",
+                                    "size": 7323310500
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}

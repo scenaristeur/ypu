@@ -28,9 +28,13 @@ npm run lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
-ws noosphere
+# ws noosphere
 -  "wss://flame-long-base.glitch.me/",
 -  "wss://yjs-leveldb.glitch.me/", // with leveldb
+
+# voir aussi 
+- [scenaristeur/ypu-node](https://github.com/scenaristeur/ypu-node)
+
 
 # 16 bits cpu in js
 
