@@ -7,21 +7,25 @@
             "url": "http://127.0.0.1:8080",
             "description": "localAi port 8080",
             "active": "true",
-            "models": {
+            "models": [{
                 "name": "stablediffusion"
-            },
+            }],
             "endpoints": [
                 {
-                    "name": "health",
+                    "service": "health",
+                    "name": "Health",
+                    "description": "",
                     "path": "readyz",
                     "method": "GET"
                 },
                 {
+                    "service": "models_list",
                     "name": "list models",
                     "path": "v1/models",
                     "method": "GET"
                 },
                 {
+                    "service": "image_generation",
                     "name": "image generation",
                     "method": "POST",
                     "path": "v1/images/generations",
@@ -45,11 +49,12 @@
             "description": "Ollama port 11434",
             "documentation": "https://github.com/jmorganca/ollama/blob/main/docs/api.md",
             "active": "true",
-            "models": {
+            "models": [{
                 "name": "llama2"
-            },
+            }],
             "endpoints": [
                 {
+                    "service": "models_list",
                     "name": "List local models",
                     "path": "api/tags",
                     "method": "GET",
@@ -76,6 +81,7 @@
                     "path": "readyz"
                 },
                 {
+                    "service": "text_completion",
                     "name": "Generate a completion",
                     "path": "api/generate",
                     "method": "POST",

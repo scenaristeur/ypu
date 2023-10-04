@@ -1,5 +1,6 @@
 import { createStore } from 'vuex'
 import ypu from './modules/ypu'
+import llms from './modules/llms'
 
 export default createStore({
   state: {
@@ -11,6 +12,6 @@ export default createStore({
   actions: {
   },
   modules: {
-    ypu
+    ypu, llms
   }
 })

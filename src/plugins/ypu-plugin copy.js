@@ -3,7 +3,7 @@ import { WebsocketProvider } from "y-websocket";
 import { Awareness } from "y-protocols/awareness.js";
 import { v4 as uuidv4 } from "uuid";
 import { Ollama } from "langchain/llms/ollama";
-// import axios from "axios";
+import axios from "axios";
 
 export default {
   install: (app, options) => {
@@ -230,31 +230,21 @@ export default {
         // }
 
         console.log(url, data);
-        fetch("http://127.0.0.1:8080/v1/images/generations",
-        {
-            headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json'
-            },
-            method: "POST",
-            body: JSON.stringify(data)
+
+        console.log("\n Image Generation");
+        axios({
+          method: "post",
+          url: "http://127.0.0.1:8080/v1/images/generations",
+          headers: { "Content-Type": "application/json" },
+          withCredentials: false,
+          data: data,
         })
-        .then(function(res){ console.log(res) })
-        .catch(function(res){ console.log(res) })
-        // console.log("\n Image Generation");
-        // axios({
-        //   method: "post",
-        //   url: "http://127.0.0.1:8080/v1/images/generations",
-        //   headers: { "Content-Type": "application/json" },
-        //   withCredentials: false,
-        //   data: data,
-        // })
-        //   .then(function (response) {
-        //     console.log(response.data);
-        //   })
-        //   .catch(function (error) {
-        //     console.log(error);
-        //   });
+          .then(function (response) {
+            console.log(response.data);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
       }
     };
 

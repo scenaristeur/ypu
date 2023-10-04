@@ -51,6 +51,7 @@ export default {
   },
   created() {
     this.config = CONFIG
+    this.$store.commit('llms/setConfig',this.config)
   },
   mounted() {
 

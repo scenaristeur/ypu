@@ -4,6 +4,16 @@ decentralized computing in the browser at [https://scenaristeur.github.io/ypu/](
 
 
 
+curl http://localhost:8080/v1/chat/completions -H "Content-Type: application/json" -d '{
+  "model": "ggml-gpt4all-j",
+  "messages": [{"role": "user", "content": "Say this is a test!"}],
+  "temperature": 0.7
+}'
+
+
+localai models available
+http://localhost:8080/models/available
+
 ## Project setup
 ```
 npm install
