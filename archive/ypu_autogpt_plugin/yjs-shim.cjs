@@ -1,0 +1,1 @@
+exports.Y = require('yjs');
