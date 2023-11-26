@@ -44,11 +44,6 @@
       </p>
 
 
-
-
-
-
-
       <TodosPush />
 
       <h1>Todos View</h1>

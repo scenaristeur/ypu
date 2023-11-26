@@ -14,6 +14,12 @@ curl http://localhost:8080/v1/chat/completions -H "Content-Type: application/jso
 localai models available
 http://localhost:8080/models/available
 
+
+## dev tricks : 
+- http://localhost:6789/ connects to remote wss://ypu.glitch.me/
+- 127.0.0.1:6789 connects to local:1234
+
+
 ## Project setup
 ```
 npm install

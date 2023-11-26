@@ -132,6 +132,7 @@ export default {
 
     //MFS, Mutable File System https://proto.school/mutable-file-system/02
     app.config.globalProperties.$pushToTodos = async function (operation) {
+      todos = doc.getMap("todos");
       todos.set(uuidv4(), { operation: operation, asker: awareness.clientID });
     };
 
@@ -196,6 +197,31 @@ export default {
     };
 
     app.config.globalProperties.$processService = async function (p) {
+      // let service = p.found_services[0];
+
+      // est-ce qu'on génére une image ou pas suite à la génération de texte?
+      p.generateImage = false;
+
+      console.log("##################p\n", p);
+      store.dispatch("llms/getCompletion", {story: p, callback: app.config.globalProperties.$textGenerationCallback});
+    };
+
+
+    app.config.globalProperties.$textGenerationCallback = async function (story) {
+      // let service = p.found_services[0];
+
+      // est-ce qu'on génére une image ou pas suite à la génération de texte?
+      // p.generateImage = false;
+
+      // console.log("##################p\n", p);
+      // store.dispatch("llms/getCompletion", p);
+
+console.log("STORY", story)
+
+
+    };
+
+    app.config.globalProperties.$processService1 = async function (p) {
       let service = p.found_services[0];
 
       if (service.response != undefined && service.response.type == "stream") {
@@ -230,17 +256,20 @@ export default {
         // }
 
         console.log(url, data);
-        fetch("http://127.0.0.1:8080/v1/images/generations",
-        {
-            headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json'
-            },
-            method: "POST",
-            body: JSON.stringify(data)
+        fetch("http://127.0.0.1:8080/v1/images/generations", {
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          method: "POST",
+          body: JSON.stringify(data),
         })
-        .then(function(res){ console.log(res) })
-        .catch(function(res){ console.log(res) })
+          .then(function (res) {
+            console.log(res);
+          })
+          .catch(function (res) {
+            console.log(res);
+          });
         // console.log("\n Image Generation");
         // axios({
         //   method: "post",
