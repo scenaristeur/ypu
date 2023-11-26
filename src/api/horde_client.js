@@ -136,6 +136,7 @@ export class HordeClient {
           if (story.generateImage == true){
             client.generateImagePrompt({ story: story, message_id: message_id, text: text })
           }
+          story.result = text
         callback(story)
           //app.$refs.messages.scroll({ top: app.$refs.messages.scrollHeight, behavior: "smooth" })
         } else {

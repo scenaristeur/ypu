@@ -203,11 +203,15 @@ export default {
       p.generateImage = false;
 
       console.log("##################p\n", p);
-      store.dispatch("llms/getCompletion", {story: p, callback: app.config.globalProperties.$textGenerationCallback});
+      store.dispatch("llms/getCompletion", {
+        story: p,
+        callback: app.config.globalProperties.$textGenerationCallback,
+      });
     };
 
-
-    app.config.globalProperties.$textGenerationCallback = async function (story) {
+    app.config.globalProperties.$textGenerationCallback = async function (
+      story
+    ) {
       // let service = p.found_services[0];
 
       // est-ce qu'on génére une image ou pas suite à la génération de texte?
@@ -216,9 +220,12 @@ export default {
       // console.log("##################p\n", p);
       // store.dispatch("llms/getCompletion", p);
 
-console.log("STORY", story)
-
-
+      console.log("STORY", story);
+      story.end = Date.now();
+      done.set(story.key, story);
+      pending.delete(story.key);
+      store.commit("ypu/setReady", true);
+      app.config.globalProperties.$prepare();
     };
 
     app.config.globalProperties.$processService1 = async function (p) {
@@ -234,7 +241,7 @@ console.log("STORY", story)
 
         //const answer = await ollama.call(`why is the sky blue?`);
         const answer = await ollama.call(p.data.operation.data.prompt);
-        p.data.operation.data.prompt;
+        //p.data.operation.data.prompt;
 
         console.log("TEST OLLAMA", answer);
         p.end = Date.now();
