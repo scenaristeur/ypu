@@ -1,0 +1,16 @@
+{
+  "name": "ypu-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type":"module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ws": "^8.15.1",
+    "y-websocket": "^1.5.1"
+  }
+}
