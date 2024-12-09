@@ -1,9 +1,9 @@
 import * as Y from "yjs";
-import { WebsocketProvider } from "y-websocket/dist/src/y-websocket.js";
+import { WebsocketProvider } from "y-websocket";
 import { Awareness } from "y-protocols/awareness.js";
 
 let config = {
-  server: "", //'wss://ypu.glitch.me/',//'ws://'+window.location.hostname+':1234',
+  server: {}, //'wss://ypu.glitch.me/',//'ws://'+window.location.hostname+':1234',
   room: "my-ypu",
 };
 //let locale_url = "ws://" + window.location.hostname + ":1234";
@@ -15,7 +15,7 @@ let awareness = new Awareness(doc);
 //store.commit('ypu/setClientID', awareness.clientID)
 console.log("awareness", awareness.clientID);
 
-let wsProvider = new WebsocketProvider(config.server, config.room, doc);
+let wsProvider = new WebsocketProvider(config.server.url, config.room, doc);
 // store.commit("ypu/setDoc", doc);
 // store.commit("ypu/setWsProvider", wsProvider);
 console.log(doc, wsProvider)

@@ -1,10 +1,14 @@
+# ypu for python
+using pycrdt
+
+- https://jupyter-server.github.io/pycrdt/install/
+- https://jupyter-server.github.io/pycrdt-websocket/
+
+```
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
 
 
-- inspiré de https://github.com/y-crdt/ypy/tree/main/examples/drawing
 
-
-python ypu_client.py
-
-
-- https://ypy.readthedocs.io/en/latest/tutorial.html
-- https://davidbrochart.github.io/ypy-websocket/usage/client/
+```
